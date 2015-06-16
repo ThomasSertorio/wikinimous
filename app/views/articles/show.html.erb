@@ -1,0 +1,10 @@
+<h1><%= @article.title %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <p><%= @markdown.render(@article.content).html_safe %></p>
+      <p><%= link_to "Back", articles_path %></p>
+    </div>
+  </div>
+</div>
+

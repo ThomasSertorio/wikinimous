@@ -1,0 +1,22 @@
+<%= form_for(@article) do |f| %>
+  <p><%= f.label :title %></p>
+  <p><%= f.text_field :title %></p>
+
+  <p><%= f.label :content %></p>
+  <div id="edit_area"/><%= f.text_area(:content, name:"area_description") %></div>
+
+  <p><%= f.submit %></p>
+<% end %>
+
+
+<script>
+  var editor = ace.edit("edit_area");
+  var textarea = $('#area_description');
+  editor.getSession().setValue(textarea.val());
+  editor.getSession().on('change', function(){
+    textarea.val(editor.getSession().getValue());
+  });
+</script>
+
+
+
